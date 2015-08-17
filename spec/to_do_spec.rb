@@ -3,9 +3,9 @@ require('task')
 require('pg')
 
 
-DB = pg.connect({:dbname => 'to_do_test'})
+DB = PG.connect({:dbname => 'to_do_test'})
 
-Rspec.configure do |configure|
+RSpec.configure do |config|
   config.after(:each) do
     DB.exec('DELETE FROM tasks *;')
   end
