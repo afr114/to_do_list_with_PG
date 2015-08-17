@@ -22,7 +22,7 @@ class Task
   end
 
   define_method(:==) do |another_task|
-    self.description().==(another_task.description()).&(self.list_id().==(another_task.list_id()))
+    self.list_id() == another_task.list_id()
   end
 
 
