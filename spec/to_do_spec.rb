@@ -14,7 +14,7 @@ end
 describe(Task) do
   describe('#description') do
     it('lets you give it a description') do
-      test_task = Task.new('buy groceries')
+      test_task = Task.new({:description => 'buy groceries'})
       expect(test_task.description()).to(eq('buy groceries'))
     end
   end
@@ -27,17 +27,9 @@ describe(Task) do
 
   describe('#save') do
     it('adds a task to the array of saved tasks') do
-    test_task = Task.new('wash the lion')
+    test_task = Task.new({:description => "wash the lion"})
     test_task.save()
     expect(Task.all()).to(eq([test_task]))
-    end
-  end
-
-  describe('.clear') do
-    it('empties all saved tasks from array') do
-      Task.new('wash the lion').save()
-      Task.clear()
-      expect(Task.all()).to(eq([]))
     end
   end
 
