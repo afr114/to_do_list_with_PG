@@ -41,4 +41,12 @@ describe(Task) do
     end
   end
 
+  describe("#==") do
+    it("compares two values in the database") do
+      task1 = Task.new({:description => "learn SQL" })
+      task2 = Task.new({:description => "learn SQL"})
+      expect(task1).to(eq(task2))
+    end
+  end
+
 end
