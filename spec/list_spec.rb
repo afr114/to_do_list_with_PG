@@ -44,9 +44,9 @@ describe(List) do
 
   describe('#==') do
     it('is the same list if it shares an id') do
-      list = List.new({:name => 'Epicodus Stuff', :id => nil})
+      list1 = List.new({:name => 'Epicodus Stuff', :id => nil})
       list2 = List.new({:name => 'Epicodus Stuff', :id => nil})
-      expect(list()).to(eq(list2))
+      expect(list1).to(eq(list2))
     end
   end
 
