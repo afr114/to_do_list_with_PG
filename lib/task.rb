@@ -11,7 +11,13 @@ class Task
   end
 
   define_singleton_method(:all) do
-    @@all_tasks
+    returned_tasks = DB.exec("Select * FROM tasks;")
+    tasks = []
+    returned_tasks.each do |task|
+      description = task.fetch("description")
+      tasks.push(Task.new({:description => description}))
+    end
+    tasks
   end
 
   define_method(:save) do
@@ -25,5 +31,5 @@ class Task
   define_method(:==) do |another_task|
     self.description() == (another_task.description())
   end
-  
+
 end
