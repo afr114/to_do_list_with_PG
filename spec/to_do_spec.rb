@@ -1,11 +1,17 @@
 require('rspec')
 require('task')
+require('pg')
+
+
+DB = pg.connect({:dbname => 'to_do_test'})
+
+Rspec.configure do |configure|
+  config.after(:each) do
+    DB.exec('DELETE FROM tasks *;')
+  end
+end
 
 describe(Task) do
-  before() do
-    Task.clear()
-  end
-
   describe('#description') do
     it('lets you give it a description') do
       test_task = Task.new('buy groceries')
