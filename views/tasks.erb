@@ -1,0 +1,34 @@
+<!-- <h1>Here is a list of your tasks:</h1>
+
+<%if @tasks.any? %>
+	<h3>Here are your tasks:</h3>
+
+	<ul>
+		<% @tasks.each do |task| %>
+		<li><a href="/tasks/<%= task.id() %>"><%= task.description() %></a></li>
+		<% end %>
+	</ul>
+
+	<% else %>
+
+		<p>There are no tasks yet!</p>
+		<% end %> -->
+
+<h1><%= @list.name() %></h1>
+
+<% if @list.tasks().any?() %>
+  <h3>Here are all the tasks in this list:</h3>
+
+  <ul>
+    <% @list.tasks().each() do |task| %>
+      <li><%= task.description() %> </li>
+    <% end %>
+  </ul>
+
+  <% else %>
+    <p>There are no tasks on this list!</p>
+  <% end %>
+
+<div class="container">
+  <a href="/"><button class="btn">Home</a>
+</div>

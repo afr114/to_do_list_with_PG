@@ -1,0 +1,14 @@
+<h1>Please add a new task:</h1>
+
+<form action="/tasks" method="post">
+  <input id="list_id"  type="hidden" name="list_id" value="<%= @list.id() %>">
+
+  <div class="form-group">
+    <label for="description">Please enter your new task:</label>
+    <input id="description" name="description" type="text">
+</div>
+
+  <button type="submit" class="btn-success">Add Task!</button>
+</form>
+
+<a href ="/lists"> Go back!</a>

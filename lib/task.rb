@@ -7,7 +7,7 @@ class Task
   end
 
   define_singleton_method(:all) do
-    returned_tasks = DB.exec("Select * FROM tasks ORDER BY due_date ASC;")
+    returned_tasks = DB.exec("Select * FROM tasks;")
     tasks = []
     returned_tasks.each do |task|
       description = task.fetch("description")
@@ -18,11 +18,11 @@ class Task
   end
 
   define_method(:save) do
-    DB.exec("INSERT INTO tasks (description, list_id) VALUES ('#{@description}', #{@list_id});")
+    DB.exec("INSERT INTO tasks (description) VALUES ('#{@description}') RETURNING list_id;")
   end
 
   define_method(:==) do |another_task|
-    self.list_id() == another_task.list_id()
+    self.list_id().== another_task.list_id()
   end
 
 
